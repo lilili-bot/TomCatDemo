@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!--修改默认主页-->
+    <welcome-file-list>
+        <welcome-file>/html/frame.html</welcome-file>
+    </welcome-file-list>
+    <!--Servlet 声明 1 指定名称的映射方式-->
+    <servlet>
+        <servlet-name>StudentServlet</servlet-name>
+        <servlet-class>com.itheima.servlet.StudentServlet</servlet-class>
+    </servlet>
+    <!--Servlet 映射 1 -->
+    <servlet-mapping>
+        <servlet-name>StudentServlet</servlet-name>
+        <url-pattern>/studentServlet</url-pattern>
+    </servlet-mapping>
+    <!--Servlet 声明 2 -->
+    <servlet>
+        <servlet-name>servletDemo3</servlet-name>
+        <servlet-class>com.itheima.servlet.servletDemo3</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!--Servlet 映射2 /开头+通配符的方式-->
+    <servlet-mapping>
+        <servlet-name>servletDemo3</servlet-name>
+        <url-pattern>/servlet/*</url-pattern>
+    </servlet-mapping>
+
+    <!--Servlet 声明 3 -->
+    <servlet>
+        <servlet-name>servletDemo4</servlet-name>
+        <servlet-class>com.itheima.servlet.servletDemo4</servlet-class>
+    </servlet>
+    <!--Servlet 映射 3 通配符加固定格式结尾的方式-->
+    <servlet-mapping>
+        <servlet-name>servletDemo4</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <!--Servlet 声明 4 多映射 -->
+
+    <servlet>
+        <servlet-name>servletTest</servlet-name>
+        <servlet-class>com.itheima.servlet.servletTest</servlet-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>desc</param-name>
+            <param-value>This is ServletConfig</param-value>
+        </init-param>
+    </servlet>
+    <!--Servlet 映射 4 通配符加固定格式结尾的方式-->
+    <servlet-mapping>
+        <servlet-name>servletTest</servlet-name>
+        <url-pattern>/yingshe/*</url-pattern>
+    </servlet-mapping>
+
+    <!--Servlet 声明 5 -->
+    <servlet>
+        <servlet-name>servletDemo5</servlet-name>
+        <servlet-class>com.itheima.servlet.servletDemo5</servlet-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>status</param-name>
+            <param-value>connected</param-value>
+        </init-param>
+    </servlet>
+    <!--Servlet 映射 5 -->
+    <servlet-mapping>
+        <servlet-name>servletDemo5</servlet-name>
+        <url-pattern>/config/*</url-pattern>
+    </servlet-mapping>
+
+    <!--Servlet 6 -->
+    <servlet>
+        <servlet-name>ServletContextDemo</servlet-name>
+        <servlet-class>com.itheima.servlet.ServletContextDemo</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ServletContextDemo</servlet-name>
+        <url-pattern>/ServletContext/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- config servlet context -->
+    <context-param>
+        <param-name>globalEncoding</param-name>
+        <param-value>UTF-8</param-value>
+    </context-param>
+    <context-param>
+        <param-name>globalDesc</param-name>
+        <param-value>This is Servlet Context</param-value>
+    </context-param>
+
+</web-app>
